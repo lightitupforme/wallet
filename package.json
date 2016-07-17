@@ -1,5 +1,5 @@
 {
-  "name": "jswallet",
+  "name": "wallet",
   "version": "0.0.1",
   "description": "A hackable Bitcoin wallet build with Electron",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oleblaesing/jswallet.git"
+    "url": "git+https://github.com/oleblaesing/wallet.git"
   },
   "keywords": [
     "Bitcoin"
@@ -18,9 +18,9 @@
   "author": "Ole Bläsing",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oleblaesing/jswallet/issues"
+    "url": "https://github.com/oleblaesing/wallet/issues"
   },
-  "homepage": "https://github.com/oleblaesing/jswallet#readme",
+  "homepage": "https://github.com/oleblaesing/wallet#readme",
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",

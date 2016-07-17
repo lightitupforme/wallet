@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Root = () => <h1>jswallet</h1>;
+const Root = () => <h1>wallet</h1>;
 
 export default Root;
