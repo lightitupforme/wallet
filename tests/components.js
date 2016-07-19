@@ -12,6 +12,14 @@ import TransactionsPage from '../src/components/TransactionsPage';
 
 expect.extend(expectJSX);
 
+const pageTest = page => {
+  const renderer = createRenderer();
+
+  renderer.render(page);
+
+  expect(renderer.getRenderOutput().type).toIncludeJSX('h1');
+};
+
 /* eslint-disable no-undef */
 describe('components', () => {
   it('should render the App component', () => {
@@ -35,27 +43,15 @@ describe('components', () => {
   });
 
   it('should render the SendPage component', () => {
-    const renderer = createRenderer();
-
-    renderer.render(<SendPage />);
-
-    expect(renderer.getRenderOutput().type).toIncludeJSX('h1');
+    pageTest(<SendPage />);
   });
 
   it('should render the AddressesPage component', () => {
-    const renderer = createRenderer();
-
-    renderer.render(<AddressesPage />);
-
-    expect(renderer.getRenderOutput().type).toIncludeJSX('h1');
+    pageTest(<AddressesPage />);
   });
 
   it('should render the TransactionsPage component', () => {
-    const renderer = createRenderer();
-
-    renderer.render(<TransactionsPage />);
-
-    expect(renderer.getRenderOutput().type).toIncludeJSX('h1');
+    pageTest(<TransactionsPage />);
   });
 });
 /* eslint-enable no-undef */
