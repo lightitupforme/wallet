@@ -4,6 +4,7 @@ import BalanceContainer from '../containers/BalanceContainer';
 import TabBar from './TabBar';
 
 export const tabs = [
+  { to: '/configuration', title: 'Configuration' },
   { to: '/send', title: 'Send' },
   { to: '/addresses', title: 'Addresses' },
   { to: '/transactions', title: 'Transactions' },
