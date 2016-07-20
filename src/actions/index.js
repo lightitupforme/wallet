@@ -18,10 +18,31 @@ export const getBalance = () => (dispatch, getState) => {
     });
 };
 
-export const addAddress = () => ({
-  type: 'ADD_ADDRESS',
-  address: {
-    address: 'asdf',
-    createdAt: new Date(),
-  },
-});
+export const getAddresses = () => (dispatch, getState) => {
+  const username = getState().configuration.username;
+  const password = getState().configuration.password;
+
+  return api.getAddresses(username, password)
+    .then(response => {
+      dispatch({
+        type: 'GET_ADDRESSES',
+        addresses: response.result,
+      });
+    });
+};
+
+export const addAddress = () => (dispatch, getState) => {
+  const username = getState().configuration.username;
+  const password = getState().configuration.password;
+
+  return api.addAddress(username, password)
+    .then(response => {
+      dispatch({
+        type: 'ADD_ADDRESS',
+        address: {
+          address: response.result,
+          createdAt: new Date(),
+        },
+      });
+    });
+};

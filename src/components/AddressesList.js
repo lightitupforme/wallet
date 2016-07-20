@@ -1,11 +1,7 @@
 import React from 'react';
 
-const renderAddressesList = addresses => {
-  addresses.sort((a, b) => a.createdAt - b.createdAt);
-  addresses.reverse();
-
-  return addresses.map((address, i) => <li key={i}>{address.address}</li>);
-};
+const renderAddressesList = addresses =>
+  addresses.map((address, i) => <li key={i}>{address.address}</li>);
 
 const AddressesList = ({ addresses }) => <ul>{renderAddressesList(addresses)}</ul>;
 
