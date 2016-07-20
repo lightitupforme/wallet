@@ -1,5 +1,6 @@
 import React from 'react';
 
+import BalanceContainer from '../containers/BalanceContainer';
 import TabBar from './TabBar';
 
 export const tabs = [
@@ -10,6 +11,7 @@ export const tabs = [
 
 const App = ({ children }) => (
   <div>
+    <BalanceContainer />
     <TabBar tabs={tabs} />
     {children}
   </div>
