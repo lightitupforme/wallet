@@ -5,8 +5,11 @@ class ConfigurationPage extends React.Component {
     super(props);
 
     this.getCredentials = this.getCredentials.bind(this);
+    this.changeSSL = this.changeSSL.bind(this);
     this.testCredentials = this.testCredentials.bind(this);
     this.storeCredentials = this.storeCredentials.bind(this);
+
+    this.state = { ssl: props.credentials.ssl };
   }
 
   getCredentials() {
@@ -15,8 +18,12 @@ class ConfigurationPage extends React.Component {
       port: this.refs.port.value,
       username: this.refs.username.value,
       password: this.refs.password.value,
-      ssl: this.refs.ssl.checked,
+      ssl: this.state.ssl,
     };
+  }
+
+  changeSSL(event) {
+    this.setState({ ssl: event.target.checked });
   }
 
   testCredentials() {
@@ -65,7 +72,13 @@ class ConfigurationPage extends React.Component {
             ref="password"
           />
           <br />
-          <input type="checkbox" checked={this.props.credentials.ssl} id="ssl" ref="ssl" />
+          <input
+            type="checkbox"
+            checked={this.state.ssl}
+            id="ssl"
+            ref="ssl"
+            onChange={this.changeSSL}
+          />
           <label htmlFor="ssl">SSL</label>
           <br />
           <button type="button" onClick={this.testCredentials}>test connection</button>
