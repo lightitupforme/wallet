@@ -1,11 +1,14 @@
 import * as api from '../api';
 
-export const testCredentials = credentials => dispatch =>
-  api.getHelp(credentials).then(() => {
+export const testCredentials = credentials => dispatch => {
+  dispatch({ type: 'AUTHENTICATION_REQUEST' });
+
+  return api.getHelp(credentials).then(() => {
     dispatch({ type: 'AUTHENTICATION_SUCCESS' });
   }).catch(() => {
     dispatch({ type: 'AUTHENTICATION_FAILED' });
   });
+};
 
 export const storeCredentials = credentials => ({
   credentials,

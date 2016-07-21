@@ -68,8 +68,9 @@ class ConfigurationPage extends React.Component {
           <input type="checkbox" checked={this.props.credentials.ssl} id="ssl" ref="ssl" />
           <label htmlFor="ssl">SSL</label>
           <br />
-          <button type="button" onClick={this.testCredentials}>test</button>
-          <button type="submit">store</button>
+          <button type="button" onClick={this.testCredentials}>test connection</button>
+          <br />
+          <button type="submit" disabled={!this.props.authenticated}>login</button>
         </form>
       </section>
     );

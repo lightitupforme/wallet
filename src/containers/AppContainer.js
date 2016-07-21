@@ -5,7 +5,7 @@ import App from '../components/App';
 import * as actions from '../actions';
 
 const AppContainer = withRouter(connect(
-  state => ({}),
+  () => ({}),
   actions
 )(App));
 

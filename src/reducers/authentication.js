@@ -3,6 +3,7 @@ const authentication = (state = false, action) => {
     case 'AUTHENTICATION_SUCCESS':
       return true;
     case 'LOGOUT_SUCCESS':
+    case 'AUTHENTICATION_REQUEST':
     case 'AUTHENTICATION_FAILED':
       return false;
     default:
