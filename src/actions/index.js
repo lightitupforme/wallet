@@ -12,6 +12,8 @@ export const storeCredentials = credentials => ({
   type: 'STORE_CREDENTIALS',
 });
 
+export const logout = () => ({ type: 'LOGOUT_SUCCESS' });
+
 export const getBalance = () => (dispatch, getState) =>
   api.getBalance(getState().configuration).then(response => {
     dispatch({

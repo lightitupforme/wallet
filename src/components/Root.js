@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import App from './App';
+import AppContainer from '../containers/AppContainer';
 import ConfigurationPageContainer from '../containers/ConfigurationPageContainer';
 import SendPage from './SendPage';
 import AddressesPageContainer from '../containers/AddressesPageContainer';
@@ -12,7 +12,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={ConfigurationPageContainer} />
-      <Route path="/app" component={App}>
+      <Route path="/app" component={AppContainer}>
         <IndexRoute component={SendPage} />
         <Route path="send" component={SendPage} />
         <Route path="addresses" component={AddressesPageContainer} />
