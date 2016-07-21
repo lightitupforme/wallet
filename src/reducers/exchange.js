@@ -1,12 +1,15 @@
 import * as constants from '../constants';
 
-const exchange = (state = 0.0, action) => {
+const exchange = (state = { change: '0.0', price: 0 }, action) => {
   switch (action.type) {
     case constants.types.GET_EXCHANGE_SUCCESS:
-      return action.exchange;
+      return Object.assign({}, {
+        change: action.exchange.change,
+        price: action.exchange.price.eur,
+      });
     case constants.types.GET_EXCHANGE_REQUEST:
     case constants.types.GET_EXCHANGE_FAILURE:
-      return 0.0;
+      return { change: '0.0', price: 0 };
     default:
       return state;
   }

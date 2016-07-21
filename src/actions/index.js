@@ -37,7 +37,7 @@ export const getExchange = () => dispatch => {
   return api.getExchange().then(response => {
     dispatch({
       type: constants.types.GET_EXCHANGE_SUCCESS,
-      exchange: response.eur,
+      exchange: response,
     });
   }).catch(() => {
     dispatch({ type: constants.types.GET_EXCHANGE_FAILURE });
