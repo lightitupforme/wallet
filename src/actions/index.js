@@ -54,9 +54,9 @@ export const addAddress = () => (dispatch, getState) => {
         address: response.result,
         new: true,
       },
-    }).catch(() => {
-      dispatch({ type: constants.types.ADD_ADDRESSES_FAILURE });
     });
+  }).catch(() => {
+    dispatch({ type: constants.types.ADD_ADDRESSES_FAILURE });
   });
 };
 
