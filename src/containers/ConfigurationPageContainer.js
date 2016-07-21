@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 import ConfigurationPage from '../components/ConfigurationPage';
-import { getUsername, getPassword } from '../reducers';
+import { getCredentials, getAuthentication } from '../reducers';
 
 const ConfigurationPageContainer = withRouter(connect(
   state => ({
-    username: getUsername(state),
-    password: getPassword(state),
+    credentials: getCredentials(state),
+    authenticated: getAuthentication(state),
   }),
   actions
 )(ConfigurationPage));

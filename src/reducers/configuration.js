@@ -1,4 +1,10 @@
-const configuration = (state = { username: '', password: '' }, action) => {
+const configuration = (state = {
+  host: '',
+  port: '',
+  username: '',
+  password: '',
+  ssl: false,
+}, action) => {
   switch (action.type) {
     case 'STORE_CREDENTIALS':
       return Object.assign({}, action.credentials);
@@ -9,6 +15,4 @@ const configuration = (state = { username: '', password: '' }, action) => {
 
 export default configuration;
 
-export const getUsername = state => state.configuration.username;
-
-export const getPassword = state => state.configuration.password;
+export const getCredentials = state => state.configuration;

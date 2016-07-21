@@ -1,23 +1,27 @@
 import 'whatwg-fetch';
 
-const init = (username, password, method, params = []) => fetch('http://127.0.0.1:8332/', {
-  method: 'POST',
-  headers: new Headers({
-    Authorization: `Basic ${btoa(`${username}:${password}`)}`,
-    'Content-Type': 'text/plain;',
-  }),
-  body: JSON.stringify({
-    method,
-    params,
-    jsonrpc: '1.0',
-  }),
-}).then(response => response.json());
+const init = (credentials, method, params = []) =>
+  fetch(`${credentials.ssl ? 'https' : 'http'}://${credentials.host}:${credentials.port}/`, {
+    method: 'POST',
+    headers: new Headers({
+      Authorization: `Basic ${btoa(`${credentials.username}:${credentials.password}`)}`,
+      'Content-Type': 'text/plain;',
+    }),
+    body: JSON.stringify({
+      method,
+      params,
+      jsonrpc: '1.0',
+    }),
+  }).then(response => response.json());
 
-export const getBalance = (username, password) =>
-  init(username, password, 'getbalance');
+export const getHelp = credentials =>
+  init(credentials, 'help');
 
-export const getAddresses = (username, password) =>
-  init(username, password, 'listreceivedbyaddress', [0, true]);
+export const getBalance = credentials =>
+  init(credentials, 'getbalance');
 
-export const addAddress = (username, password) =>
-  init(username, password, 'getnewaddress');
+export const getAddresses = credentials =>
+  init(credentials, 'listreceivedbyaddress', [0, true]);
+
+export const addAddress = credentials =>
+  init(credentials, 'getnewaddress');
