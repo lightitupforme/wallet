@@ -31,6 +31,19 @@ export const getBalance = () => (dispatch, getState) => {
   });
 };
 
+export const getExchange = () => dispatch => {
+  dispatch({ type: constants.types.GET_EXCHANGE_REQUEST });
+
+  return api.getExchange().then(response => {
+    dispatch({
+      type: constants.types.GET_EXCHANGE_SUCCESS,
+      exchange: response.eur,
+    });
+  }).catch(() => {
+    dispatch({ type: constants.types.GET_EXCHANGE_FAILURE });
+  });
+};
+
 export const getAddresses = () => (dispatch, getState) => {
   dispatch({ type: constants.types.GET_ADDRESSES_REQUEST });
 
