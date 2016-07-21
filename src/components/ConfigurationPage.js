@@ -41,49 +41,75 @@ class ConfigurationPage extends React.Component {
 
   render() {
     return (
-      <section>
-        <h1>Configuration</h1>
+      <section className="padded-more">
         <form onSubmit={this.storeCredentials}>
-          <input
-            type="text"
-            defaultValue={this.props.credentials.host}
-            placeholder="host"
-            ref="host"
-          />
-          <br />
-          <input
-            type="number"
-            defaultValue={this.props.credentials.port}
-            placeholder="port"
-            ref="port"
-          />
-          <br />
-          <input
-            type="text"
-            defaultValue={this.props.credentials.username}
-            placeholder="username"
-            ref="username"
-          />
-          <br />
-          <input
-            type="password"
-            defaultValue={this.props.credentials.password}
-            placeholder="password"
-            ref="password"
-          />
-          <br />
-          <input
-            type="checkbox"
-            checked={this.state.ssl}
-            id="ssl"
-            ref="ssl"
-            onChange={this.changeSSL}
-          />
-          <label htmlFor="ssl">SSL</label>
-          <br />
-          <button type="button" onClick={this.testCredentials}>test connection</button>
-          <br />
-          <button type="submit" disabled={!this.props.authenticated}>login</button>
+          <div className="form-group">
+            <label>host</label>
+            <input
+              type="text"
+              defaultValue={this.props.credentials.host}
+              placeholder="host"
+              className="form-control"
+              ref="host"
+            />
+          </div>
+          <div className="form-group">
+            <label>port</label>
+            <input
+              type="number"
+              defaultValue={this.props.credentials.port}
+              placeholder="port"
+              className="form-control"
+              ref="port"
+            />
+          </div>
+          <div className="form-group">
+            <label>username</label>
+            <input
+              type="text"
+              defaultValue={this.props.credentials.username}
+              placeholder="username"
+              className="form-control"
+              ref="username"
+            />
+          </div>
+          <div className="form-group">
+            <label>password</label>
+            <input
+              type="password"
+              defaultValue={this.props.credentials.password}
+              placeholder="password"
+              className="form-control"
+              ref="password"
+            />
+          </div>
+          <div className="checkbox">
+            <label>
+              <input
+                type="checkbox"
+                checked={this.state.ssl}
+                ref="ssl"
+                onChange={this.changeSSL}
+              />
+              SSL
+            </label>
+          </div>
+          <div className="form-actions">
+            <button
+              type="button"
+              className="btn btn-default"
+              onClick={this.testCredentials}
+            >
+              test connection
+            </button>
+            <button
+              type="submit"
+              disabled={!this.props.authenticated}
+              className="btn btn-primary"
+            >
+              login
+            </button>
+          </div>
         </form>
       </section>
     );

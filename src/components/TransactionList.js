@@ -6,7 +6,7 @@ const renderTransactionList = transactions =>
   transactions.map((transaction, i) => <Transaction key={i} transaction={transaction} />);
 
 const TransactionList = ({ transactions }) => (
-  <table>
+  <table className="table-striped">
     <thead>
       <tr>
         <th>date</th>

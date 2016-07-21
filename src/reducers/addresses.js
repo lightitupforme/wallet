@@ -6,7 +6,7 @@ const addresses = (state = [], action) => {
       return action.addresses;
     case constants.types.ADD_ADDRESSES_SUCCESS:
       return [
-        action.address,
+        { address: action.address },
         ...state,
       ];
     case constants.types.GET_ADDRESSES_REQUEST:

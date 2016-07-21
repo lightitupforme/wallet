@@ -8,12 +8,24 @@ const Balance = ({ balance, exchange }) => {
   const capital = numberToCurrency(calculateExchangeTotal(balance, exchange.price));
 
   return (
-    <ul>
-      <li><strong>Balance:</strong> {balance} BTC</li>
-      <li><strong>Capital:</strong> {capital}</li>
-      <li><strong>Price:</strong> {price}</li>
-      <li><strong>Change:</strong> {exchange.change} %</li>
-    </ul>
+    <div>
+      <span className="nav-group-item">
+        <span className="icon icon-database"></span>
+        {balance.toFixed(5)} BTC
+      </span>
+      <span className="nav-group-item">
+        <span className="icon icon-chart-pie"></span>
+        {capital}
+      </span>
+      <span className="nav-group-item">
+        <span className="icon icon-cloud"></span>
+        {price}
+      </span>
+      <span className="nav-group-item">
+        <span className="icon icon-chart-line"></span>
+        {exchange.change} %
+      </span>
+    </div>
   );
 };
 

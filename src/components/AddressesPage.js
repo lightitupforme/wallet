@@ -4,8 +4,14 @@ import AddressesListContainer from '../containers/AddressesListContainer';
 
 const AddressesPage = ({ addAddress }) => (
   <section>
-    <h1>Addresses</h1>
-    <button type="button" onClick={() => addAddress()}>+</button>
+    <header className="toolbar toolbar-header">
+      <div className="toolbar-actions">
+        <button type="button" className="btn btn-default" onClick={() => addAddress()} >
+          <span className="icon icon-plus-circled" />
+          &nbsp;new address
+        </button>
+      </div>
+    </header>
     <AddressesListContainer />
   </section>
 );

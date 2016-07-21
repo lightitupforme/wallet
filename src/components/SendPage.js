@@ -1,5 +1,5 @@
 import React from 'react';
 
-const SendPage = () => <h1>Send</h1>;
+const SendPage = () => <section className="padded-more"></section>;
 
 export default SendPage;

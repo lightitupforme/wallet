@@ -27,4 +27,4 @@ export const addAddress = credentials =>
   init(credentials, 'getnewaddress');
 
 export const getTransactions = credentials =>
-  init(credentials, 'listtransactions');
+  init(credentials, 'listtransactions', ['*', 300]);

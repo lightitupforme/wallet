@@ -1,18 +1,16 @@
 import React from 'react';
-import Clipboard from 'clipboard';
-
-new Clipboard('.btn-cp'); // eslint-disable-line no-new
 
 const renderAddressesList = addresses =>
   addresses.map((address, i) => (
-    <li key={i} className={address.new ? 'current' : ''}>
-      <span>{address.address}</span>
-      &nbsp;
-      <button type="button" className="btn-cp" data-clipboard-text={address.address}>copy</button>
+    <li key={i} className="list-group-item">
+      <div className="media-body">
+        <p className="selectable-text">{address.address}</p>
+      </div>
     </li>
   ));
 
-const AddressesList = ({ addresses }) => <ul>{renderAddressesList(addresses)}</ul>;
+const AddressesList = ({ addresses }) =>
+  <ul className="list-group">{renderAddressesList(addresses)}</ul>;
 
 AddressesList.propTypes = {
   addresses: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,

@@ -16,8 +16,6 @@ export const storeCredentials = credentials => ({
   type: constants.types.STORE_CREDENTIALS_SUCCESS,
 });
 
-export const logout = () => ({ type: constants.types.AUTHENTICATION_LOGOUT_SUCCESS });
-
 export const getBalance = () => (dispatch, getState) => {
   dispatch({ type: constants.types.GET_BALANCE_REQUEST });
 
@@ -63,10 +61,7 @@ export const addAddress = () => (dispatch, getState) => {
   return api.addAddress(getState().configuration).then(response => {
     dispatch({
       type: constants.types.ADD_ADDRESSES_SUCCESS,
-      address: {
-        address: response.result,
-        new: true,
-      },
+      address: response.result,
     });
   }).catch(() => {
     dispatch({ type: constants.types.ADD_ADDRESSES_FAILURE });

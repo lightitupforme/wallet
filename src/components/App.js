@@ -1,42 +1,30 @@
 import React from 'react';
 
-import BalanceContainer from '../containers/BalanceContainer';
 import TabBar from './TabBar';
 
 export const tabs = [
-  { to: '/app/send', title: 'Send' },
-  { to: '/app/addresses', title: 'Addresses' },
-  { to: '/app/transactions', title: 'Transactions' },
+  { to: '/send', icon: <span className="icon icon-paper-plane" />, title: 'send' },
+  { to: '/addresses', icon: <span className="icon icon-book-open" />, title: 'addresses' },
+  { to: '/transactions', icon: <span className="icon icon-switch" />, title: 'transactions' },
 ];
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.logout = this.logout.bind(this);
-  }
-
-  logout() {
-    this.props.logout();
-    this.props.router.push('/');
-  }
-
-  render() {
-    return (
-      <div>
-        <BalanceContainer />
-        <button type="button" onClick={this.logout}>logout</button>
-        <TabBar tabs={tabs} />
-        {this.props.children}
+const App = ({ children }) => (
+  <div className="window">
+    <div className="window-content">
+      <div className="pane-group">
+        <div className="pane-sm sidebar">
+          <TabBar tabs={tabs} />
+        </div>
+        <div className="pane">
+          {children}
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  </div>
+);
 
 App.propTypes = {
-  logout: React.PropTypes.func.isRequired,
   children: React.PropTypes.object.isRequired,
-  router: React.PropTypes.object.isRequired,
 };
 
 export default App;
