@@ -14,7 +14,7 @@ export const load = () => {
 
 export const save = state => {
   try {
-    localStorage.setItem('state', JSON.stringify(state));
+    localStorage.setItem('state', JSON.stringify({ configuration: state.configuration }));
   } catch (err) {
     // Just do nothing when localStorage is not supported
   }
