@@ -1,5 +1,12 @@
 import React from 'react';
 
-const TransactionsPage = () => <h1>Transactions</h1>;
+import TransactionListContainer from '../containers/TransactionListContainer';
+
+const TransactionsPage = () => (
+  <section>
+    <h1>Transactions</h1>
+    <TransactionListContainer />
+  </section>
+);
 
 export default TransactionsPage;

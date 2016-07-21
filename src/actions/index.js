@@ -43,3 +43,11 @@ export const addAddress = () => (dispatch, getState) =>
       },
     });
   });
+
+export const getTransactions = () => (dispatch, getState) =>
+  api.getTransactions(getState().configuration).then(response => {
+    dispatch({
+      type: 'GET_TRANSACTIONS',
+      transactions: response.result,
+    });
+  });
