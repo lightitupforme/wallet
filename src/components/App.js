@@ -16,6 +16,10 @@ class App extends React.Component {
     this.logout = this.logout.bind(this);
   }
 
+  refresh() {
+    location.reload();
+  }
+
   logout() {
     this.props.logout();
     this.props.router.push('/');
@@ -24,6 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <button type="button" onClick={this.refresh}>refresh</button>
         <BalanceContainer />
         <button type="button" onClick={this.logout}>logout</button>
         <TabBar tabs={tabs} />
