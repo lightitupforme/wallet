@@ -13,6 +13,7 @@ const addresses = (state = [], action) => {
     case constants.types.GET_ADDRESSES_FAILURE:
     case constants.types.ADD_ADDRESSES_REQUEST:
     case constants.types.ADD_ADDRESSES_FAILURE:
+      return [];
     default:
       return state;
   }

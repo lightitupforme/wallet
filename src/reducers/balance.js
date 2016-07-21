@@ -6,6 +6,7 @@ const balance = (state = 0.0, action) => {
       return action.balance;
     case constants.types.GET_BALANCE_REQUEST:
     case constants.types.GET_BALANCE_FAILURE:
+      return 0.0;
     default:
       return state;
   }

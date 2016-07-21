@@ -7,6 +7,7 @@ const authentication = (state = false, action) => {
     case constants.types.AUTHENTICATION_LOGIN_REQUEST:
     case constants.types.AUTHENTICATION_LOGIN_FAILURE:
     case constants.types.AUTHENTICATION_LOGOUT_SUCCESS:
+      return false;
     default:
       return state;
   }

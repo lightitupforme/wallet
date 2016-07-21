@@ -6,6 +6,7 @@ const transactions = (state = [], action) => {
       return action.transactions;
     case constants.types.GET_TRANSACTIONS_REQUEST:
     case constants.types.GET_TRANSACTIONS_FAILURE:
+      return [];
     default:
       return state;
   }
