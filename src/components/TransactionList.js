@@ -1,27 +1,9 @@
 import React from 'react';
 
-export const timestampToDateTime = timestamp => {
-  const locale = new Intl.DateTimeFormat('de-DE', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  });
+import Transaction from './Transaction';
 
-  return locale.format(new Date(timestamp * 1000));
-};
-
-const renderTransactionList = transactions => transactions.map((transaction, i) => (
-  <tr key={i}>
-    <td>{timestampToDateTime(transaction.time)}</td>
-    <td>{transaction.category}</td>
-    <td>{transaction.amount}</td>
-    <td>{transaction.address}</td>
-    <td>{transaction.confirmations}</td>
-  </tr>
-));
+const renderTransactionList = transactions =>
+  transactions.map((transaction, i) => <Transaction key={i} transaction={transaction} />);
 
 const TransactionList = ({ transactions }) => (
   <table>

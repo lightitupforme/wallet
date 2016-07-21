@@ -1,3 +1,5 @@
+import * as constants from '../constants';
+
 const configuration = (state = {
   host: '',
   port: '',
@@ -6,7 +8,7 @@ const configuration = (state = {
   ssl: false,
 }, action) => {
   switch (action.type) {
-    case 'STORE_CREDENTIALS':
+    case constants.types.STORE_CREDENTIALS_SUCCESS:
       return Object.assign({}, action.credentials);
     default:
       return state;
