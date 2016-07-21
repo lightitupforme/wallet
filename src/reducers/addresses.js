@@ -3,7 +3,10 @@ const addresses = (state = [], action) => {
     case 'GET_ADDRESSES':
       return action.addresses;
     case 'ADD_ADDRESS':
-      return state.concat([action.address]);
+      return [
+        action.address,
+        ...state,
+      ];
     default:
       return state;
   }

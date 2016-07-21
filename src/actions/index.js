@@ -41,7 +41,7 @@ export const addAddress = () => (dispatch, getState) => {
         type: 'ADD_ADDRESS',
         address: {
           address: response.result,
-          createdAt: new Date(),
+          new: true,
         },
       });
     });

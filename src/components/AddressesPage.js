@@ -5,8 +5,8 @@ import AddressesListContainer from '../containers/AddressesListContainer';
 const AddressesPage = ({ addAddress }) => (
   <section>
     <h1>Addresses</h1>
-    <AddressesListContainer />
     <button type="button" onClick={() => addAddress()}>+</button>
+    <AddressesListContainer />
   </section>
 );
 
