@@ -6,7 +6,6 @@ import expectJSX from 'expect-jsx';
 import App, * as fromApp from '../src/components/App';
 import TabBar from '../src/components/TabBar';
 import SendPage from '../src/components/SendPage';
-import AddressesPage from '../src/components/AddressesPage';
 import TransactionsPage from '../src/components/TransactionsPage';
 
 
@@ -44,10 +43,6 @@ describe('components', () => {
 
   it('should render the SendPage component', () => {
     pageTest(<SendPage />);
-  });
-
-  it('should render the AddressesPage component', () => {
-    pageTest(<AddressesPage />);
   });
 
   it('should render the TransactionsPage component', () => {
