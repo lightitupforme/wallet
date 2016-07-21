@@ -4,10 +4,9 @@ import BalanceContainer from '../containers/BalanceContainer';
 import TabBar from './TabBar';
 
 export const tabs = [
-  { to: '/configuration', title: 'Configuration' },
-  { to: '/send', title: 'Send' },
-  { to: '/addresses', title: 'Addresses' },
-  { to: '/transactions', title: 'Transactions' },
+  { to: '/app/send', title: 'Send' },
+  { to: '/app/addresses', title: 'Addresses' },
+  { to: '/app/transactions', title: 'Transactions' },
 ];
 
 const App = ({ children }) => (

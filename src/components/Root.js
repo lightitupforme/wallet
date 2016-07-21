@@ -11,9 +11,9 @@ import TransactionsPage from './TransactionsPage';
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={ConfigurationPageContainer} />
-        <Route path="configuration" component={ConfigurationPageContainer} />
+      <Route path="/" component={ConfigurationPageContainer} />
+      <Route path="/app" component={App}>
+        <IndexRoute component={SendPage} />
         <Route path="send" component={SendPage} />
         <Route path="addresses" component={AddressesPageContainer} />
         <Route path="transactions" component={TransactionsPage} />
