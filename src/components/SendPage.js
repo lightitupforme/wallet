@@ -7,6 +7,13 @@ class SendPage extends React.Component {
     this.sendAmount = this.sendAmount.bind(this);
   }
 
+  componentWillUpdate() {
+    if (this.props.sendingSuccess) {
+      this.refs.address.value = '';
+      this.refs.amount.value = '';
+    }
+  }
+
   componentWillUnmount() {
     this.props.resetSending();
   }
@@ -56,7 +63,18 @@ class SendPage extends React.Component {
             >
               send
             </button>
-            <span style={{ color: '#a94442' }}>{this.props.sendingError}</span>
+            <span
+              className="selectable-text"
+              style={{ color: '#3c763d' }}
+            >
+              {this.props.sendingSuccess}
+            </span>
+            <span
+              className="selectable-text"
+              style={{ color: '#a94442' }}
+            >
+              {this.props.sendingError}
+            </span>
           </div>
         </form>
       </section>
@@ -67,6 +85,7 @@ class SendPage extends React.Component {
 SendPage.propTypes = {
   balance: React.PropTypes.number.isRequired,
   sending: React.PropTypes.bool.isRequired,
+  sendingSuccess: React.PropTypes.string,
   sendingError: React.PropTypes.string,
   sendAmount: React.PropTypes.func.isRequired,
   resetSending: React.PropTypes.func.isRequired,

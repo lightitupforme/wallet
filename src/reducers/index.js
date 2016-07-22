@@ -36,4 +36,6 @@ export const getTransactions = state => fromTransactions.getTransactions(state);
 
 export const isSending = state => fromTransfers.isSending(state);
 
+export const getSuccessMessage = state => fromTransfers.getSuccessMessage(state);
+
 export const getSendingError = state => fromTransfers.getSendingError(state);

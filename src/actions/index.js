@@ -96,10 +96,12 @@ export const sendAmount = (address, amount) => (dispatch, getState) => {
         message: response.error.message,
         type: constants.types.SEND_AMOUNT_FAILURE,
       });
-
-      fetchBalance(dispatch, getState().configuration);
     } else {
-      dispatch({ type: constants.types.SEND_AMOUNT_SUCCESS });
+      dispatch({
+        message: response.result,
+        type: constants.types.SEND_AMOUNT_SUCCESS,
+      });
+      fetchBalance(dispatch, getState().configuration);
     }
   }).catch(err => {
     dispatch({

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import SendPage from '../components/SendPage';
-import { getBalance, isSending, getSendingError } from '../reducers';
+import { getBalance, isSending, getSuccessMessage, getSendingError } from '../reducers';
 import * as actions from '../actions';
 
 class SendPageContainer extends React.Component {
@@ -16,6 +16,7 @@ class SendPageContainer extends React.Component {
       <SendPage
         balance={this.props.balance}
         sending={this.props.sending}
+        sendingSuccess={this.props.sendingSuccess}
         sendingError={this.props.sendingError}
         sendAmount={this.props.sendAmount}
         resetSending={this.props.resetSending}
@@ -27,6 +28,7 @@ class SendPageContainer extends React.Component {
 SendPageContainer.propTypes = {
   balance: React.PropTypes.number.isRequired,
   sending: React.PropTypes.bool.isRequired,
+  sendingSuccess: React.PropTypes.string,
   sendingError: React.PropTypes.string,
   getBalance: React.PropTypes.func.isRequired,
   sendAmount: React.PropTypes.func.isRequired,
@@ -38,6 +40,7 @@ SendPageContainer = withRouter(connect(
   state => ({
     balance: getBalance(state),
     sending: isSending(state),
+    sendingSuccess: getSuccessMessage(state),
     sendingError: getSendingError(state),
   }),
   actions
