@@ -3,7 +3,7 @@ import React from 'react';
 const renderAddressesList = addresses =>
   addresses.map((address, i) => (
     <li key={i} className="list-group-item">
-      <div className="media-body">
+      <div className="media-body" style={address.new && i === 0 ? { fontSize: '1.4em' } : {}}>
         <strong>{address.label || 'no label'}</strong>
         <p className="selectable-text">{address.address}</p>
       </div>
