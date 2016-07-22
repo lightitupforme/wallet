@@ -1,14 +1,23 @@
 import * as bitcoin from './bitcoin';
 import * as exchange from './exchange';
 
-export const getHelp = credentials => bitcoin.getHelp(credentials);
+export const getHelp = credentials =>
+  bitcoin.getHelp(credentials);
 
-export const getBalance = credentials => bitcoin.getBalance(credentials);
+export const getBalance = credentials =>
+  bitcoin.getBalance(credentials);
 
-export const getExchange = () => exchange.getExchange();
+export const getExchange = () =>
+  exchange.getExchange();
 
-export const getAddresses = credentials => bitcoin.getAddresses(credentials);
+export const getAddresses = credentials =>
+  bitcoin.getAddresses(credentials);
 
-export const addAddress = (credentials, label = null) => bitcoin.addAddress(credentials, label);
+export const addAddress = (credentials, label = null) =>
+  bitcoin.addAddress(credentials, label);
 
-export const getTransactions = credentials => bitcoin.getTransactions(credentials);
+export const getTransactions = credentials =>
+  bitcoin.getTransactions(credentials);
+
+export const sendAmount = (credentials, address, amount) =>
+  bitcoin.sendAmount(credentials, address, amount);

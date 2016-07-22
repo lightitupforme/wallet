@@ -28,3 +28,6 @@ export const addAddress = (credentials, label = null) =>
 
 export const getTransactions = credentials =>
   init(credentials, 'listtransactions', ['*', 300]);
+
+export const sendAmount = (credentials, address, amount) =>
+  init(credentials, 'sendtoaddress', [address, amount]);

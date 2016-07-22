@@ -6,6 +6,7 @@ import balance, * as fromBalance from './balance';
 import exchange, * as fromExchange from './exchange';
 import addresses, * as fromAddresses from './addresses';
 import transactions, * as fromTransactions from './transactions';
+import transfers, * as fromTransfers from './transfers';
 
 const reducers = combineReducers({
   configuration,
@@ -14,6 +15,7 @@ const reducers = combineReducers({
   exchange,
   addresses,
   transactions,
+  transfers,
 });
 
 export default reducers;
@@ -31,3 +33,7 @@ export const getExchange = state => fromExchange.getExchange(state);
 export const getAddresses = state => fromAddresses.getAddresses(state);
 
 export const getTransactions = state => fromTransactions.getTransactions(state);
+
+export const isSending = state => fromTransfers.isSending(state);
+
+export const getSendingError = state => fromTransfers.getSendingError(state);

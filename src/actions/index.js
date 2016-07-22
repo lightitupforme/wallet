@@ -86,3 +86,29 @@ export const getTransactions = () => (dispatch, getState) => {
     dispatch({ type: constants.types.GET_TRANSACTIONS_FAILURE });
   });
 };
+
+export const sendAmount = (address, amount) => (dispatch, getState) => {
+  dispatch({ type: constants.types.SEND_AMOUNT_REQUEST });
+
+  return api.sendAmount(getState().configuration, address, amount).then(response => {
+    if (response.error) {
+      dispatch({
+        message: response.error.message,
+        type: constants.types.SEND_AMOUNT_FAILURE,
+      });
+
+      fetchBalance(dispatch, getState().configuration);
+    } else {
+      dispatch({ type: constants.types.SEND_AMOUNT_SUCCESS });
+    }
+  }).catch(err => {
+    dispatch({
+      message: err.message,
+      type: constants.types.SEND_AMOUNT_FAILURE,
+    });
+  });
+};
+
+export const resetSending = () => dispatch => {
+  dispatch({ type: constants.types.RESET_SEND_AMOUNT });
+};
