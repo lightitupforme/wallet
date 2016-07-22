@@ -23,6 +23,7 @@ class AddressesList extends React.Component {
     const label = this.refs.label.value || null;
 
     this.props.addAddress(label);
+    this.refs.label.value = '';
   }
 
   render() {

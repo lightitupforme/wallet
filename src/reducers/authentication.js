@@ -1,6 +1,8 @@
+import { combineReducers } from 'redux';
+
 import * as constants from '../constants';
 
-const authentication = (state = false, action) => {
+const authenticated = (state = false, action) => {
   switch (action.type) {
     case constants.types.AUTHENTICATION_LOGIN_SUCCESS:
       return true;
@@ -12,6 +14,20 @@ const authentication = (state = false, action) => {
   }
 };
 
-export default authentication;
+const authenticating = (state = false, action) => {
+  switch (action.type) {
+    case constants.types.AUTHENTICATION_LOGIN_REQUEST:
+      return true;
+    case constants.types.AUTHENTICATION_LOGIN_SUCCESS:
+    case constants.types.AUTHENTICATION_LOGIN_FAILURE:
+      return false;
+    default:
+      return state;
+  }
+};
 
-export const getAuthentication = state => state.authentication;
+export default combineReducers({ authenticated, authenticating });
+
+export const getAuthentication = state => state.authentication.authenticated;
+
+export const getAuthenticating = state => state.authentication.authenticating;

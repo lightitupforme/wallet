@@ -1,25 +1,10 @@
 import * as constants from '../constants';
 import * as api from '../api';
 
-export const testCredentials = credentials => dispatch => {
-  dispatch({ type: constants.types.AUTHENTICATION_LOGIN_REQUEST });
-
-  return api.getHelp(credentials).then(() => {
-    dispatch({ type: constants.types.AUTHENTICATION_LOGIN_SUCCESS });
-  }).catch(() => {
-    dispatch({ type: constants.types.AUTHENTICATION_LOGIN_FAILURE });
-  });
-};
-
-export const storeCredentials = credentials => ({
-  credentials,
-  type: constants.types.STORE_CREDENTIALS_SUCCESS,
-});
-
-export const getBalance = () => (dispatch, getState) => {
+const fetchBalance = (dispatch, credentials) => {
   dispatch({ type: constants.types.GET_BALANCE_REQUEST });
 
-  return api.getBalance(getState().configuration).then(response => {
+  return api.getBalance(credentials).then(response => {
     dispatch({
       type: constants.types.GET_BALANCE_SUCCESS,
       balance: response.result,
@@ -27,6 +12,25 @@ export const getBalance = () => (dispatch, getState) => {
   }).catch(() => {
     dispatch({ type: constants.types.GET_BALANCE_FAILURE });
   });
+};
+
+export const storeCredentials = credentials => dispatch => {
+  dispatch({ type: constants.types.AUTHENTICATION_LOGIN_REQUEST });
+
+  return api.getHelp(credentials).then(() => {
+    dispatch({ type: constants.types.AUTHENTICATION_LOGIN_SUCCESS });
+    dispatch({
+      credentials,
+      type: constants.types.STORE_CREDENTIALS_SUCCESS,
+    });
+    fetchBalance(dispatch, credentials);
+  }).catch(() => {
+    dispatch({ type: constants.types.AUTHENTICATION_LOGIN_FAILURE });
+  });
+};
+
+export const getBalance = () => (dispatch, getState) => {
+  fetchBalance(dispatch, getState().configuration);
 };
 
 export const getExchange = () => dispatch => {

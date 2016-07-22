@@ -22,6 +22,8 @@ export const getCredentials = state => fromConfiguration.getCredentials(state);
 
 export const getAuthentication = state => fromAuthentication.getAuthentication(state);
 
+export const getAuthenticating = state => fromAuthentication.getAuthenticating(state);
+
 export const getBalance = state => fromBalance.getBalance(state);
 
 export const getExchange = state => fromExchange.getExchange(state);

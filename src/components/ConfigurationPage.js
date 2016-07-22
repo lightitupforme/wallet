@@ -4,39 +4,39 @@ class ConfigurationPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.getCredentials = this.getCredentials.bind(this);
     this.changeSSL = this.changeSSL.bind(this);
-    this.testCredentials = this.testCredentials.bind(this);
     this.storeCredentials = this.storeCredentials.bind(this);
+    this.status = this.status.bind(this);
 
     this.state = { ssl: props.credentials.ssl };
-  }
-
-  getCredentials() {
-    return {
-      host: this.refs.host.value,
-      port: this.refs.port.value,
-      username: this.refs.username.value,
-      password: this.refs.password.value,
-      ssl: this.state.ssl,
-    };
   }
 
   changeSSL(event) {
     this.setState({ ssl: event.target.checked });
   }
 
-  testCredentials() {
-    this.props.testCredentials(this.getCredentials());
-  }
-
   storeCredentials(event) {
     event.preventDefault();
 
-    if (this.props.authenticated) {
-      this.props.storeCredentials(this.getCredentials());
-      this.props.router.push('/app');
+    this.props.storeCredentials({
+      host: this.refs.host.value,
+      port: this.refs.port.value,
+      username: this.refs.username.value,
+      password: this.refs.password.value,
+      ssl: this.state.ssl,
+    });
+  }
+
+  status() {
+    if (this.props.authenticating) {
+      return 'authenticating';
     }
+
+    if (this.props.authenticated) {
+      return 'reauthenticate';
+    }
+
+    return 'authenticate';
   }
 
   render() {
@@ -96,18 +96,12 @@ class ConfigurationPage extends React.Component {
           </div>
           <div className="form-actions">
             <button
-              type="button"
-              className="btn btn-default"
-              onClick={this.testCredentials}
-            >
-              test connection
-            </button>
-            <button
               type="submit"
-              disabled={!this.props.authenticated}
-              className="btn btn-primary"
+              disabled={this.props.authenticating}
+              className="btn btn-default"
+              style={this.props.authenticating ? { opacity: 0.65, cursor: 'not-allowed' } : {}}
             >
-              login
+              {this.status()}
             </button>
           </div>
         </form>
@@ -119,9 +113,8 @@ class ConfigurationPage extends React.Component {
 ConfigurationPage.propTypes = {
   credentials: React.PropTypes.object.isRequired,
   authenticated: React.PropTypes.bool.isRequired,
-  testCredentials: React.PropTypes.func.isRequired,
+  authenticating: React.PropTypes.bool.isRequired,
   storeCredentials: React.PropTypes.func.isRequired,
-  router: React.PropTypes.object.isRequired,
 };
 
 export default ConfigurationPage;
