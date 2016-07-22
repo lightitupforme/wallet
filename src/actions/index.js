@@ -55,11 +55,12 @@ export const getAddresses = () => (dispatch, getState) => {
   });
 };
 
-export const addAddress = () => (dispatch, getState) => {
+export const addAddress = (label = null) => (dispatch, getState) => {
   dispatch({ type: constants.types.ADD_ADDRESSES_REQUEST });
 
-  return api.addAddress(getState().configuration).then(response => {
+  return api.addAddress(getState().configuration, label).then(response => {
     dispatch({
+      label,
       type: constants.types.ADD_ADDRESSES_SUCCESS,
       address: response.result,
     });

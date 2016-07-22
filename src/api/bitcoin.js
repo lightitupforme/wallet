@@ -23,8 +23,8 @@ export const getBalance = credentials =>
 export const getAddresses = credentials =>
   init(credentials, 'listreceivedbyaddress', [0, true]);
 
-export const addAddress = credentials =>
-  init(credentials, 'getnewaddress');
+export const addAddress = (credentials, label = null) =>
+  init(credentials, 'getnewaddress', label ? [label] : []);
 
 export const getTransactions = credentials =>
   init(credentials, 'listtransactions', ['*', 300]);

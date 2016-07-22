@@ -12,13 +12,14 @@ class AddressesListContainer extends React.Component {
   }
 
   render() {
-    return <AddressesList addresses={this.props.addresses} />;
+    return <AddressesList addresses={this.props.addresses} addAddress={this.props.addAddress} />;
   }
 }
 
 AddressesListContainer.propTypes = {
   addresses: React.PropTypes.array.isRequired,
   getAddresses: React.PropTypes.func.isRequired,
+  addAddress: React.PropTypes.func.isRequired,
 };
 
 /* eslint-disable no-class-assign */

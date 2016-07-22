@@ -3,7 +3,7 @@ import React from 'react';
 import TabBar from './TabBar';
 
 export const tabs = [
-  { to: '/send', icon: <span className="icon icon-paper-plane" />, title: 'send' },
+  { to: '/send', icon: <span className="icon icon-paper-plane" />, title: 'transfer' },
   { to: '/addresses', icon: <span className="icon icon-book-open" />, title: 'addresses' },
   { to: '/transactions', icon: <span className="icon icon-switch" />, title: 'transactions' },
 ];

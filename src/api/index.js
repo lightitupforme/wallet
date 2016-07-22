@@ -9,6 +9,6 @@ export const getExchange = () => exchange.getExchange();
 
 export const getAddresses = credentials => bitcoin.getAddresses(credentials);
 
-export const addAddress = credentials => bitcoin.addAddress(credentials);
+export const addAddress = (credentials, label = null) => bitcoin.addAddress(credentials, label);
 
 export const getTransactions = credentials => bitcoin.getTransactions(credentials);
