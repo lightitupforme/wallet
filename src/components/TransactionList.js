@@ -14,6 +14,7 @@ const TransactionList = ({ transactions }) => (
         <th>amount</th>
         <th>address</th>
         <th>confirmations</th>
+        <th>id</th>
       </tr>
     </thead>
     <tbody>

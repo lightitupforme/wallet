@@ -9,6 +9,7 @@ const Transaction = ({ transaction }) => (
     <td>{transaction.amount}</td>
     <td>{transaction.address}</td>
     <td>{transaction.confirmations}</td>
+    <td className="selectable-text">{transaction.txid}</td>
   </tr>
 );
 
