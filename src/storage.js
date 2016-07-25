@@ -17,7 +17,7 @@ export const save = state => {
     localStorage.setItem('state', JSON.stringify({
       configuration: state.configuration,
       authentication: {
-        authenticated: state.authentication,
+        authenticated: state.authentication.authenticated,
         authenticating: false,
       },
     }));
