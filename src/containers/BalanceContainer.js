@@ -10,6 +10,15 @@ class BalanceContainer extends React.Component {
   componentDidMount() {
     this.props.getBalance();
     this.props.getExchange();
+
+    this.interval = setInterval(() => {
+      this.props.getBalance();
+      this.props.getExchange();
+    }, 30000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {

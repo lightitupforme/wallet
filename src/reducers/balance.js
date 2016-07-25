@@ -4,9 +4,9 @@ const balance = (state = 0.0, action) => {
   switch (action.type) {
     case constants.types.GET_BALANCE_SUCCESS:
       return action.balance;
-    case constants.types.GET_BALANCE_REQUEST:
     case constants.types.GET_BALANCE_FAILURE:
       return 0.0;
+    case constants.types.GET_BALANCE_REQUEST:
     default:
       return state;
   }

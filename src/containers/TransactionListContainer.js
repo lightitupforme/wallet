@@ -9,6 +9,14 @@ import * as actions from '../actions';
 class TransactionListContainer extends React.Component {
   componentDidMount() {
     this.props.getTransactions();
+
+    this.interval = setInterval(() => {
+      this.props.getTransactions();
+    }, 30000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {

@@ -9,9 +9,9 @@ const addresses = (state = [], action) => {
         { address: action.address, label: action.label, new: action.new },
         ...state,
       ];
-    case constants.types.GET_ADDRESSES_REQUEST:
     case constants.types.GET_ADDRESSES_FAILURE:
       return [];
+    case constants.types.GET_ADDRESSES_REQUEST:
     case constants.types.ADD_ADDRESSES_REQUEST:
     case constants.types.ADD_ADDRESSES_FAILURE:
     default:

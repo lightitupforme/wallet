@@ -7,9 +7,9 @@ const exchange = (state = { change: '0.0', price: 0 }, action) => {
         change: action.exchange.change,
         price: action.exchange.price.eur,
       });
-    case constants.types.GET_EXCHANGE_REQUEST:
     case constants.types.GET_EXCHANGE_FAILURE:
       return { change: '0.0', price: 0 };
+    case constants.types.GET_EXCHANGE_REQUEST:
     default:
       return state;
   }
