@@ -12,7 +12,7 @@ const createWindow = () => {
     center: true,
   });
 
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/build/index.html`);
 
   mainWindow.on('closed', () => {
     mainWindow = null;
