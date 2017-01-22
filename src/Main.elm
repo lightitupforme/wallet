@@ -1,9 +1,14 @@
+module Main exposing (..)
+
 import Html
+
 
 title : String
 title =
-  "wallet"
+    "wallet"
 
+
+main : Html.Html msg
 main =
-  Html.text
-    <| title
+    Html.text <|
+        title
