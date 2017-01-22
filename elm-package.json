@@ -1,6 +1,6 @@
 {
     "version": "0.0.1",
-    "summary": "A bitcoind GUI client",
+    "summary": "A bitcoind client",
     "repository": "https://github.com/oleblaesing/wallet.git",
     "license": "MIT",
     "source-directories": [
