@@ -1,14 +1,7 @@
 module Main exposing (..)
 
-import Html
+import Html exposing (text)
 
 
-title : String
-title =
-    "wallet"
-
-
-main : Html.Html msg
 main =
-    Html.text <|
-        title
+    text "wallet"
